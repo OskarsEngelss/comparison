@@ -1,5 +1,5 @@
 <x-layout title="Home Page">
-    <x-comparisonBase>
+    <x-comparison-base>
         <h2>Laptop 1</h2>
         <p style="background-color: red;">Price: $995.00</p>
         <p>Specs:</p>
@@ -9,8 +9,8 @@
             <li style="background-color: lightgreen;">RAM: 16GB</li>
             <li style="background-color: green;">Storage: 1TB</li>
         </ul>
-    </x-comparisonBase>
-    <x-comparisonBase>
+    </x-comparison-base>
+    <x-comparison-base>
         <h2>Laptop 2</h2>
         <p style="background-color: green;">Price: $799.99</p>
         <p>Specs:</p>
@@ -20,5 +20,5 @@
             <li style="background-color: lightgreen;">RAM: 16GB</li>
             <li style="background-color: red;">Storage: 512GB</li>
         </ul>
-    </x-comparisonBase>
+    </x-comparison-base>
 </x-layout>
