@@ -32,7 +32,7 @@ nav {
     font-size: 1.8em;
 }
 
-.base {
+.item-container {
     width: fit-content;
 
     padding: 15px 35px;
