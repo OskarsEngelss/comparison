@@ -23,11 +23,14 @@
                     @include('components.computer-info', ['computer' => $computer])
                 @endif
             @endif
+
+            <p>Uploaded by: {{ $item->user->name }}</p>
             <form action="{{ route('items.destroy', $item->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Delete</button>
             </form>
+            <a href="{{ route('items.edit', $item->id) }}">Edit</a>
         </x-item-container>
     @endforeach
 </x-layout>

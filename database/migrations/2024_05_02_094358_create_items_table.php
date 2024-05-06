@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->decimal('price', 8, 2);
-            // Polymorphic relationship fields
+            $table->unsignedBigInteger('user_id');
+
+            // Polymorphic relationship:
             $table->unsignedBigInteger('itemable_id')->nullable();
             $table->string('itemable_type')->nullable();
             $table->timestamps();
+
+            // Foreign key:
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
