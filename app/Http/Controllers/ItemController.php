@@ -12,11 +12,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function index() 
+    public function index(Request $request)
     {
-        $items = Item::all();
         $computers = Computer::all();
         $cars = Car::all();
+
+        if ($request->has('show')) {
+            $selectedOptions = $request->input('show', []);
+
+            $itemsQuery = Item::query();
+            $items = (in_array('car', $selectedOptions)) ? Item::where('itemable_type', '=', 'App\Models\Car')->get() : 
+                     ((in_array('computer', $selectedOptions)) ? Item::where('itemable_type', '=', 'App\Models\Computer')->get() :
+                     []);
+
+        } else {
+            $items = Item::all();
+        }
+
         return view('items.index', compact('items', 'computers', 'cars'));
     }
 
@@ -89,13 +101,10 @@ class ItemController extends Controller
 
     public function edit($id)
     {
-        // Find the item by ID
         $item = Item::findOrFail($id);
 
-        // Determine the type of item (car or computer)
         $type = $item->itemable_type;
 
-        // Return the appropriate edit view based on the type
         if ($type === 'App\Models\Car') {
             return view('items.edit_car', compact('item'));
         } elseif ($type === 'App\Models\Computer') {
@@ -105,13 +114,8 @@ class ItemController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate the form input
-        // You can use the same validation rules as in the store method
-
-        // Find the item by ID
         $item = Item::findOrFail($id);
 
-        // Update the common attributes of the item
         $item->update([
             'title' => $request->title,
             'price' => $request->price,
@@ -138,7 +142,6 @@ class ItemController extends Controller
             ]);
         }
 
-        // Redirect back to the index page with a success message
         return redirect()->route('items.index')->with('success', 'Item updated successfully.');
     }
 

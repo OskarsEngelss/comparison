@@ -10,12 +10,13 @@ use App\Middleware\RedirectIfNotAuthenticated;
 Route::redirect('/', '/items');
 
 Route::resource('items', ItemController::class);
-
+Route::post('/apply-filters', [ItemController::class, 'index'])->name('apply.filters');
 
 Route::prefix('items')->group(function () {
     Route::resource('cars', CarController::class)->only(['create', 'store']);
     Route::resource('computers', ComputerController::class)->only(['create', 'store']);
 });
+
 
 // ^^ Items ^^ vv Auth vv
 
