@@ -31,7 +31,7 @@
             <input type="date" name="release_date" value="{{ old('release_date') }}" required>
         </x-create-edit-label>
         <x-create-edit-label>
-            Fuel Economy:
+            Fuel Economy (in km/l):
             <input type="number" name="fuel_economy" placeholder="Fuel Economy" value="{{ old('fuel_economy') }}" required>
         </x-create-edit-label>
         <x-create-edit-label>

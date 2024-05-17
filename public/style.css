@@ -57,7 +57,7 @@ nav {
 
     background-color: #2a7845;
     border-radius: 15px;
-    margin: 80px 0px 0px 15px;
+    margin: 15px 0px 0px 15px;
     box-shadow: 10px 5px 5px var(--item-shadow);
 }
 .filter-form {
@@ -346,6 +346,7 @@ p {
     .navbar-a {
         border-left: solid 2px black;
         border-right: solid 2px black;
+        font-size: 1.15em;
     }
 }
 @media only screen and (max-width: 500px) {

@@ -5,5 +5,7 @@
     <p><x-item-span>Max Speed (km/h): </x-item-span> {{ $car->max_speed }}</p>
     <p><x-item-span>Weight (kg):</x-item-span> {{ $car->weight }}</p>
     <p><x-item-span>Size:</x-item-span> {{ $car->size }}</p>
-    <p><x-item-span>Misc Info:</x-item-span> {{ $car->misc_info }}</p>
+    @if ($car->misc_info  !== null)
+        <p><x-item-span>Misc Info:</x-item-span> {{ $car->misc_info }}</p>
+    @endif
 </div>
