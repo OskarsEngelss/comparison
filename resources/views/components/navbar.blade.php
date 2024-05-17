@@ -1,9 +1,9 @@
 <nav>
     <x-nav-link href="/">Home</x-nav-link>
     <x-nav-link href="/create">Create</x-nav-link>
-    <x-nav-link href="profile">
+    <x-nav-link href="/profile">
         @auth
-            Welcome, {{ auth()->user()->name }}
+            {{ auth()->user()->name }}
         @endauth
         @guest
             Log in

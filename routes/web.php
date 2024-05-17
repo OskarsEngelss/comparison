@@ -7,22 +7,18 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\ProfileController;
 use App\Middleware\RedirectIfNotAuthenticated;
 
+
 Route::redirect('/', '/items');
 
 Route::resource('items', ItemController::class);
 Route::post('/apply-filters', [ItemController::class, 'index'])->name('apply.filters');
 
-Route::prefix('items')->group(function () {
-    Route::resource('cars', CarController::class)->only(['create', 'store']);
-    Route::resource('computers', ComputerController::class)->only(['create', 'store']);
-});
-
+Route::post('/items/check', [ItemController::class, 'checkItems'])->name('items.check');
+Route::get('/items/selected', [ItemController::class, 'showSelected'])->name('items.showSelected');
 
 // ^^ Items ^^ vv Auth vv
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ItemController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
@@ -38,6 +34,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('cars', CarController::class)->only(['create', 'store']);
         Route::resource('computers', ComputerController::class)->only(['create', 'store']);
     });
+    
 });
 
 require __DIR__.'/auth.php';

@@ -1,6 +1,7 @@
 :root {
     font-family: monospace;
     --gold: rgb(255, 211, 53);
+    --item-shadow: #3f644d;
 }
 body {
     width: 100%;
@@ -9,22 +10,28 @@ body {
     justify-content: center;
     align-items: center;
 
+    background-color: #FCFFE0;
     margin: 80px 0px 0px;
+}
+* {
+    font-family: "Nova Square";
 }
 
 /* ^^^ Core ^^^ */
 /* vvv Navbar vvv */
 
 nav {
-    width: 100%;
+    width: 95%;
     height: 60px;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 
-    background: linear-gradient(to top, #e0e0e0, #c0c0c0);
+    background: linear-gradient(to top, #F5DAD2, #deb7a9);
+    box-shadow: 0px 7px 5px #c49b8d;
     position: absolute;
+    border-bottom-right-radius: 35px;
     top: 0;
     left: 0;
 }
@@ -43,7 +50,8 @@ nav {
 
     background-color: #2a7845;
     border-radius: 15px;
-    margin-left: 15px;
+    margin: 80px 0px 0px 15px;
+    box-shadow: 10px 5px 5px var(--item-shadow);
 }
 .filter-form {
     display: flex;
@@ -80,6 +88,29 @@ nav {
 .filter-form > button:hover {
     transform: scaleX(1.05);
 }
+.compare-button {
+    height: 60px;
+    width: 220px;
+
+    position: absolute;
+    top: 85px;
+    left: 15px;
+
+    border-radius: inherit;
+    color: white;
+    font-size: 1.5em;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 15px;
+	cursor: pointer;
+    background: #d0572e;
+
+    transition: 0.5s;
+}
+.compare-button:hover {
+    background: #db4c1c;
+    transform: scaleX(1.05);
+}
 
 /* ^^^ Filter ^^^ */
 /* vvv Items vvv */
@@ -98,13 +129,77 @@ nav {
     flex-wrap: wrap;
 }
 .item-container {
-    width: fit-content;
+    max-width: 600px;
+    height: 300px;
 
-    padding: 15px 35px;
-    background-color: rgb(222, 222, 222);
-    border: 5px solid darkred;
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    padding: 15px 35px 8px;
+    margin: 10px 0px;
+    background-color: #BACD92;
+    border: 5px solid #75A47F;
     border-radius: 15px;
-    font-size: 2.5em;
+    font-size: 2em;
+    box-shadow: 10px 5px 5px var(--item-shadow);
+    word-wrap: break-word;
+}
+.item-span {
+    font-weight: 800;
+    font-size: 1.1em;
+}
+.item-author-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-author-options> form {
+    width: fit-content;
+    height: fit-content;
+}
+.delete-button, .edit-button {
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+
+    color: white;
+    font-size: 1em;
+    padding: 5px 14px;
+    margin: 15px 0px 0px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+.delete-button {
+    background: rgb(197, 84, 84);
+}
+.delete-button:hover {
+    background: rgb(168, 66, 66);
+}
+.edit-button {
+    background: rgb(152, 152, 4);
+}
+.edit-button:hover {
+    background: rgb(132, 132, 3);
+}
+::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+    background: none;
+    margin: 3px 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #9c9c9c; /* Set the color of the scrollbar thumb */
+    border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7e7e7e; /* Set the color of the scrollbar thumb on hover */
 }
 h2 {
     margin: 0px 0px 8px;
@@ -113,6 +208,92 @@ h2 {
 p {
     margin: 0;
 }
+
+/* ^^^ Items ^^^ */
+/* vvv Create vvv */
+
+.create-option-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.create-option-div > form > button {
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+
+    color: white;
+    font-size: 3.5em;
+    padding: 15px 35px;
+    margin: 135px 15px 0px;
+    border: none;
+    border-radius: 15px;
+	cursor: pointer;
+    background: #e3b09f;
+    box-shadow: 10px 5px 5px #846359;
+
+    transition: 0.5s;
+}
+.create-option-div > form > button:hover {
+    background: #bd8c7c;
+    box-shadow: -10px 5px 5px #846359;
+}
+.create-item-form {
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    background-color: #BACD92;
+    border: 5px solid #75A47F;
+    box-shadow: -10px 5px 5px var(--item-shadow);
+    margin-bottom: 25px;
+    border-radius: 15px;
+    padding: 10px 25px;
+}
+.create-item-form > label {
+    margin: 4px 0px;
+    font-size: 1.5em;
+}
+.create-item-form > label > input {
+    width: 350px;
+    height: 28px;
+}
+.create-item-form > button {
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+
+    background: #5cae79;
+    color: white;
+    font-size: 1em;
+    padding: 10px 25px;
+    margin: 15px 0px 0px;
+    border: none;
+    border-radius: 15px;
+	cursor: pointer;
+
+    transition: 0.5s;
+}
+.create-item-form > button:hover {
+    background: #438d5d;
+    transform: scaleX(1.05);
+}
+.validation-error-div {
+    width: inherit;
+    color: red;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+/* ^^^ Create ^^^ */
+
 .categories, .categories-form, .main-form, label {
     display: flex;
     justify-content: space-around;
@@ -124,4 +305,47 @@ p {
 }
 .navbar-profile {
     color: white;
+}
+
+/* vvv Media vvv */
+
+@media only screen and (max-width: 1020px) {
+    .create-option-div > form > button {
+        font-size: 2em;
+    }
+    .item-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .item-container {
+        max-width: 400px;
+    }    
+}
+@media only screen and (max-width: 750px) {
+    .item-container {
+        max-width: 400px;
+        font-size: 1.6em;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .item-container {
+        max-width: 250px;
+        font-size: 1.44em; 
+    }
+}
+@media only screen and (max-width: 500px) {
+    .create-item-form > label {
+        font-size: 1.1em;
+    }
+    .create-item-form > label > input {
+        width: 250px;
+        height: 20px;
+    }
+    .validation-error-div {
+        width: 280px;
+    }
 }

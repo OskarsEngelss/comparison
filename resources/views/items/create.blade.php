@@ -1,4 +1,12 @@
 <x-layout title="Create">
-    <a href="{{ route('cars.create') }}">Create Car</a>
-    <a href="{{ route('computers.create') }}">Create Computer</a>
+    <div class="create-option-div">
+        <form action="{{ route('cars.create') }}">
+            @csrf
+            <button type="submit">Create Car</button>
+        </form>
+        <form action="{{ route('computers.create') }}">
+            @csrf
+            <button type="submit">Create Computer</button>
+        </form>
+    </div>
 </x-layout>
