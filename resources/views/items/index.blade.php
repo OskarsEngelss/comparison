@@ -15,7 +15,7 @@
             </form>
         </div>
 
-        <form  method="POST">
+        <form action="/check" method="POST">
             @csrf
             <div class="item-outer-div">
                 @foreach ($items as $item)

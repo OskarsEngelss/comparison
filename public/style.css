@@ -35,10 +35,17 @@ nav {
     top: 0;
     left: 0;
 }
-.nav-link {
-    color: white;
+.navbar-a {
+    color: black;
     text-decoration: none;
     font-size: 1.8em;
+    transition: 0.5s;
+    padding: 7px 12px;
+    border-radius: 15px;
+}
+.navbar-a:hover {
+    color: white;
+    background: #b98978;
 }
 
 /* ^^^ Navbar ^^^ */
@@ -335,6 +342,10 @@ p {
     .item-container {
         max-width: 250px;
         font-size: 1.44em; 
+    }
+    .navbar-a {
+        border-left: solid 2px black;
+        border-right: solid 2px black;
     }
 }
 @media only screen and (max-width: 500px) {
