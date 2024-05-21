@@ -146,7 +146,7 @@ nav {
     overflow-x: hidden;
 
     padding: 15px 35px 8px;
-    margin: 10px 0px;
+    margin: 10px 5px;
     background-color: #BACD92;
     border: 5px solid #75A47F;
     border-radius: 15px;
@@ -300,6 +300,163 @@ p {
 }
 
 /* ^^^ Create ^^^ */
+/* vvv Rabbit vvv */
+
+.animation-container {
+    position: absolute;
+    margin: 180px 0px 0px 80px;
+}
+
+.container {
+    position: relative;
+    animation: jump 1.5s infinite ease-in-out;
+}
+
+.body, .head, .ears, .ears-detail, .tail, .eye, .back-legs, .front-legs {
+    background-color: rgb(102, 102, 102);
+    transform: rotate(-10deg);
+    border-radius: 25px;
+    position: absolute;
+}
+
+.ears, .ears-detail {
+    top: 0;
+    width: 50px;
+    height: 20px;
+    transform: rotate(-120deg);
+    left: 60px;
+    margin-top: -60px;
+}
+
+.ears {
+    animation: ears 1.5s infinite ease-in-out;
+}
+
+.ears-detail {
+    background-color: pink;
+    width: 30px;
+    height: 10px;
+    margin-top: -57px;
+    animation: ears-detail 1.5s infinite ease-in-out;
+}
+
+.head {
+    top: 0;
+    width: 50px;
+    height: 55px;
+    transform: rotate(65deg);
+    left: 70px;
+    margin-top: -40px;
+}
+
+.eye {
+    background-color: black;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    transform: rotate(65deg);
+    left: 95px;
+    margin-top: -25px;
+}
+
+.body {
+    width: 100px;
+    height: 45px;
+    animation: body 1.5s infinite ease-in-out;
+}
+
+.front-legs {
+    width: 15px;
+    height: 43px;
+    left: 83px;
+    margin-top: 20px;
+    transform: rotate(-15deg);
+    border-top: 3px solid rgb(59, 59, 59);
+    animation: front-legs 1.5s infinite ease-in-out;
+}
+
+.back-legs {
+    width: 45px;
+    height: 25px;
+    left: 5px;
+    margin-top: 35px;
+    transform: rotate(0deg);
+    border-top: 3px solid rgb(59, 59, 59);
+    animation: back-legs 1.5s infinite ease-in-out;
+}
+
+.tail {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: -5px;
+    left: -4px;
+    animation: tail 1.5s infinite ease-in-out;
+}
+
+.planet {
+    width: 250px;
+    height: 250px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1200px-Earth_Western_Hemisphere_transparent_background.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-top: 40px;
+    left: -70px;
+    position: absolute;
+    animation: planet-rotate 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0%, 100% { top: 0; }
+    50% { top: -100px; }
+}
+
+@keyframes body {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(-18deg); }
+}
+
+@keyframes tail {
+    0%, 100% { margin-top: -5px; }
+    50% { margin-top: 0px; }
+}
+
+@keyframes front-legs {
+    0%, 100% { top: 0; transform: rotateX(0deg); transform: rotate(0deg); left: 83px; }
+    50% { top: -10px; transform: rotateX(35deg); transform: rotate(19deg); left: 78px; }
+}
+
+@keyframes back-legs {
+    0%, 100% {
+        top: -3px;
+        transform: rotateX(0deg) rotate(0deg) scale(1);
+        left: 5px;
+    }
+    50% {
+        top: 1px;
+        transform: rotateX(35deg) rotate(-15deg) scale(1.2);
+        left: -5px;
+    }
+}
+
+@keyframes ears {
+    0%, 100% { left: 58px;  transform: rotate(-120deg);}
+    50% { left: 64px; transform: rotate(-110deg); }
+}
+
+@keyframes ears-detail {
+    0%, 100% { left: 68px; transform: rotate(-120deg); }
+    50% { left: 74px; transform: rotate(-110deg); }
+}
+
+@keyframes planet-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ^^^ Rabbit ^^^ */
+/* vvv Random vvv */
 
 .categories, .categories-form, .main-form, label {
     display: flex;
@@ -314,6 +471,7 @@ p {
     color: white;
 }
 
+/* ^^^ Random ^^^ */
 /* vvv Media vvv */
 
 @media only screen and (max-width: 1020px) {
@@ -324,6 +482,9 @@ p {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .animation-container {
+        display: none;
     }
 }
 @media only screen and (max-width: 750px) {

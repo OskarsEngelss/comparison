@@ -13,6 +13,19 @@
                 </label>
                 <button type="submit">Apply filters</button>
             </form>
+            <div class="animation-container">
+                <div class="planet"></div>
+                <div class="container">
+                    <div class="ears"></div>
+                    <div class="ears-detail"></div>
+                    <div class="head"></div>
+                    <div class="eye"></div>
+                    <div class="body"></div>
+                    <div class="tail"></div>
+                    <div class="front-legs"></div>
+                    <div class="back-legs"></div>
+                </div>
+            </div>
         </div>
 
         <div class="item-outer-div">
