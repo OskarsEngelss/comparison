@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="flex justify-center items-center h-screen">
-        <h1 class="text-7xl text-white">Register</h1>
+<div>
+        <h1 class="text-5xl text-black mb-5 text-center">Register</h1>
     </div>
 
     <form method="POST" action="{{ route('register') }}">

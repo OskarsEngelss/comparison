@@ -2,8 +2,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="flex justify-center items-center h-screen">
-        <h1 class="text-7xl text-white">Login</h1>
+    <div>
+        <h1 class="text-5xl text-black mb-5 text-center">Login</h1>
     </div>
 
     <form method="POST" action="{{ route('login') }}">
